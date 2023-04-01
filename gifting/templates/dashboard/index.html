@@ -1,0 +1,24 @@
+{% extends 'gift/base.html' %}
+{% block title %}
+MyItems |
+{% endblock %}
+{% block content %}
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+  <h2 class="mb-12 text-2xl text-center">MyCreated Items</h2>
+  <div class="grid grid-cols-3 gap-3">
+    {% for i in myitems %}
+      <div class="flex flex-wrap">
+        <a href="{% url 'item:details' i.id %}">
+          <div>
+            <img src="{{ i.image.url }}" class="rounded-t-xl w-32 h-32 object-cover flex-shrink-0">
+          </div>
+        </a>
+        <div class="p-2 bg-white rounded-b-xl flex-grow">
+          <h2 class="text-lg font-medium">{{ i.name }}</h2>
+          <p class="text-gray-600 mt-1">{{ i.price }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

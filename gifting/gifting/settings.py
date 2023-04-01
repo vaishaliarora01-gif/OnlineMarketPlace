@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gift',
     'item',
-    'widget_tweaks',
+    'dashboard'
 ]
 
 MIDDLEWARE = [

@@ -27,6 +27,7 @@ urlpatterns = [
     path('',include('gift.urls')),
     path('details/',include('item.urls')),
     path('signin/',auth_views.LoginView.as_view(template_name='gift/signin.html'),name='signin'),
-    path('signout/',auth_views.LogoutView.as_view(template_name='gift/signout.html'),name='signout')
+    path('signout/',auth_views.LogoutView.as_view(template_name='gift/signout.html'),name='signout'),
+    path('',include('dashboard.urls'))
     
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
