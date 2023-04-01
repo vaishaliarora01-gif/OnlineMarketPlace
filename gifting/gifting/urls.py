@@ -18,12 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from gift import views
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index, name='index'),
+    path('',include('gift.urls')),
     path('details/',include('item.urls')),
-    path('contact/',views.contact,name='contact')
+    path('signin/',auth_views.LoginView.as_view(template_name='gift/signin.html'),name='signin'),
+    path('signout/',auth_views.LogoutView.as_view(template_name='gift/signout.html'),name='signout')
+    
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

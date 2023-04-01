@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from item.models import Category, Item
+from .forms import SignupForm
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -9,3 +11,16 @@ def index(request):
     
 def contact(request):
     return render(request,'gift/contact.html')
+    
+def signupview(request):
+       
+       if request.method=="POST":
+           form=SignupForm(request.POST)
+           if form.is_valid():
+               form.save()
+               un=form.cleaned_data['username']
+               messages.success(request,"You are successfully logged in as {}!!!!".format(un))
+               return redirect('signin')
+       elif request.method=="GET":
+           form=SignupForm()
+       return render(request,'gift/signup.html',{'form':form})
