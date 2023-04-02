@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404,redirect
 from item.models import Item,Category
-from item.forms import NewItemForm
+from item.forms import NewItemForm,EditItemForm
+from django.http import HttpResponseBadRequest
 
 
 def details(request,pk):
@@ -21,4 +22,43 @@ def newItemview(request):
        else :
             form=NewItemForm()
             return render(request,'item/form.html',{'form':form})
+            
+            
+            
+def EditItemview(request,pk):
+       item=get_object_or_404(Item,pk=pk)
+       if request.method=="POST":
+           form=EditItemForm(request.POST, request.FILES,instance=item)
+           if form.is_valid():
+               form.save()
+               return redirect('item:details',pk=item.id)
+           else:
+               return HttpResponseBadRequest("Invalid form data")
+       else :
+            form=EditItemForm(instance=item)
+            return render(request,'item/form.html',{'form':form})          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+def delete(request,pk):
+    item = get_object_or_404(Item,pk=pk,created_by=request.user)
+    item.delete()
+   # return redirect('/myitems')
+    return redirect('dashboard:myitems')
+    
 

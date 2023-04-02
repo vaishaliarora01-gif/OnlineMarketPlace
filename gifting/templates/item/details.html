@@ -12,7 +12,12 @@
       <p class="text-gray-500"><strong>Price:</strong>{{item.price}}</p>
       <p class="text-gray-500"><strong>Seller:</strong>{{item.created_by}}</p>
       <p class="text-gray-700"><strong class="text-gray-500">Description:</strong>{{item.description}}</p>
+      {% if item.created_by == request.user %}
+      <a href="{% url 'item:delete' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-full hover:bg-gray-500">DELETE</a>
+      <a href="{% url 'item:edit' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-full hover:bg-gray-500">EDIT</a>
+      {% else %}
       <a href="#" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-full hover:bg-gray-500">Contact Seller</a>
+      {%endif%}
     </div>
   </div>
   

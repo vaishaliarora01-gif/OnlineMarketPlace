@@ -15,7 +15,7 @@
         <a href="{% url 'item:form' %}" class="text-lg font-semibold hover:text-gray-500">New Item</a>
         <a href="#" class="text-lg font-semibold hover:text-gray-500">Browse</a>
         <a href="#" class="text-lg font-semibold hover:text-gray-500">Mailbox</a>
-        <a href="#" class="text-lg font-semibold hover:text-gray-500">Dashboard</a>
+        <a href="{% url 'dashboard:myitems' %}" class="text-lg font-semibold hover:text-gray-500">Dashboard</a>
     </div>
     <a href="{% url 'signout' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">{{user.username}},Signout</a>
 {% else %}
