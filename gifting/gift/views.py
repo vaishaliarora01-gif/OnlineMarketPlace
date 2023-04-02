@@ -24,3 +24,10 @@ def signupview(request):
        elif request.method=="GET":
            form=SignupForm()
        return render(request,'gift/signup.html',{'form':form})
+       
+def aboutpage(request):
+    return render(request,'gift/about.html')
+def privacypage(request):
+    return render(request,'gift/privacy.html')
+def termpage(request):
+    return render(request,'gift/term.html')

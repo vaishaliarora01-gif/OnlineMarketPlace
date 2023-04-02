@@ -3,6 +3,14 @@ from item.models import Item,Category
 from item.forms import NewItemForm,EditItemForm
 from django.http import HttpResponseBadRequest
 
+def items(request):
+    items=Item.objects.filter(is_sold=False)
+    return render(request,'item/items.html',{'items':items})
+
+
+
+
+
 
 def details(request,pk):
       item=get_object_or_404(Item,pk=pk)

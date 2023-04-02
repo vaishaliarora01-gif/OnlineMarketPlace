@@ -1,0 +1,29 @@
+{% extends 'gift/base.html' %}
+{%load static%}
+{% block title %}
+TermOfUse |
+{% endblock %}
+{% block content %}
+
+<div class="bg-cover bg-center bg-no-repeat" style="background-image: url('{% static 'images/giftings1.jpg' %}');">
+  <h1 class="text-3xl font-bold mb-4">Terms of Use</h1>
+  <p class="text-gray-700 text-base mb-4">
+    Welcome to Giftings, an inventory management portal used by employees to keep track of inventory used for giftings. By accessing and using this portal, you agree to the following terms and conditions:
+  </p>
+  <ul class="list-disc list-inside mb-4">
+    <li class="mb-2">You must be an authorized employee of the company to access and use this portal.</li>
+    <li class="mb-2">You are responsible for maintaining the confidentiality of your login credentials.</li>
+    <li class="mb-2">You agree to use the portal only for its intended purpose.</li>
+    <li class="mb-2">You agree not to misuse or abuse the portal or its contents in any way.</li>
+    <li class="mb-2">You agree not to share your login credentials with anyone else.</li>
+    <li class="mb-2">You agree to comply with all applicable laws and regulations when using the portal.</li>
+    <li class="mb-2">We reserve the right to terminate or suspend your access to the portal at any time for any reason.</li>
+    <li class="mb-2">We reserve the right to modify these terms of use at any time without prior notice.</li>
+  </ul>
+  <p class="text-gray-700 text-base">
+    By accessing and using the Giftings portal, you agree to these terms of use. If you do not agree to these terms of use, you may not use the portal.
+  </p>
+
+</div>
+
+{% endblock %}
