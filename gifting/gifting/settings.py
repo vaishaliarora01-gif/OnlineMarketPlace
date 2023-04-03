@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMP_DIR=os.path.join(BASE_DIR,'templates')
 STAT_DIR=os.path.join(BASE_DIR,'static')
-MEDIA_DIR=os.path.join(BASE_DIR,'media')
+#MEDIA_DIR=os.path.join(BASE_DIR,'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gift',
     'item',
-    'dashboard'
+    'dashboard',
+    
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     STAT_DIR,
     ]
-MEDIA_URL='/media/'
-MEDIA_ROOT=MEDIA_DIR
+#MEDIA_URL='/media/'
+#MEDIA_ROOT=MEDIA_DIR
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 LOGIN_REDIRECT_URL = '/'
 

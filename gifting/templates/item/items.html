@@ -1,0 +1,32 @@
+{% extends 'gift/base.html' %}
+{% block title %}
+Browse |
+{% endblock %}
+{% block content %}
+   
+   <div class="pb-6 grid grid-cols-4 gap-4">
+       <div class="col-span-1">
+           side bar
+       </div>
+       <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-3">
+    {% for i in items %}
+      <div class="flex flex-wrap">
+        <a href="{% url 'item:details' i.id %}">
+         <div>
+            <img src="" alt="wait" class="rounded-t-xl w-32 h-32 object-cover flex-shrink-0">
+          </div>
+        <div class="p-2 bg-white rounded-b-xl flex-grow">
+          <h2 class="text-lg font-medium">{{ i.name }}</h2>
+          <p class="text-gray-600 mt-1">{{ i.price }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+   
+       </div>
+   </div>
+   
+              
+
+{% endblock %}

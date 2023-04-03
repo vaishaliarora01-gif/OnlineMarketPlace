@@ -5,7 +5,7 @@ from django.contrib import messages
 
 # Create your views here.
 def index(request):
-    item=Item.objects.filter(is_sold=False)[0:6]
+    item=Item.objects.filter(is_sold=False)
     categories=Category.objects.all()
     return render(request,'gift/index.html',{'item':item,'categories':categories})
     

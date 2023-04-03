@@ -4,7 +4,7 @@ from item.forms import NewItemForm,EditItemForm
 from django.http import HttpResponseBadRequest
 
 def items(request):
-    items=Item.objects.filter(is_sold=False)
+    items=Item.objects.filter(is_sold=False)[0:6]
     return render(request,'item/items.html',{'items':items})
 
 
